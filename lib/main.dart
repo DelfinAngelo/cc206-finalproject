@@ -1,21 +1,33 @@
-// File: lib/main.dart
+import 'package:shared_preferences/shared_preferences.dart';
+
 @override
-Widget build(BuildContext context) {
-  return Scaffold(
-    appBar: AppBar(title: Text('Buluhaton Pro')),
-    body: Column(
-      children: [
-        Expanded(
-          child: ListView.builder(
-            itemCount: _tasks.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(_tasks[index]),
-              );
-            },
-          ),
-        ),
-      ],
-    ),
-  );
+void initState() {
+  super.initState();
+  _loadTasks();
+}
+
+void _loadTasks() async {
+  final prefs = await SharedPreferences.getInstance();
+  setState(() {
+    _tasks.addAll(prefs.getStringList('tasks') ?? []);
+  });
+}
+
+void _saveTasks() async {
+  final prefs = await SharedPreferences.getInstance();
+  prefs.setStringList('tasks', _tasks);
+}
+
+void _addTask(String task) {
+  setState(() {
+    _tasks.add(task);
+    _saveTasks();
+  });
+}
+
+void _removeTask(int index) {
+  setState(() {
+    _tasks.removeAt(index);
+    _saveTasks();
+  });
 }
