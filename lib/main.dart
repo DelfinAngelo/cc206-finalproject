@@ -33,7 +33,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('TaskMate')),
+      appBar: AppBar(title: Text('Buluhaton Pro')),
       body: Center(child: Text('Value Widgets Logic Placeholder')),
     );
   }
