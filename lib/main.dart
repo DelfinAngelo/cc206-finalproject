@@ -1,8 +1,7 @@
-// File: lib/main.dart
 @override
 Widget build(BuildContext context) {
   return Scaffold(
-    appBar: AppBar(title: Text('Buluhaton Pro')),
+    appBar: AppBar(title: Text('Buluhaton Pro - Task Manager')),
     body: Column(
       children: [
         Expanded(
