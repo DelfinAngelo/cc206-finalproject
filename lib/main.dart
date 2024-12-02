@@ -34,7 +34,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Buluhaton Pro')),
-      body: Center(child: Text('Value Widgets Logic Placeholder')),
+      body: Center(child: Text('Value')),
     );
   }
 }
